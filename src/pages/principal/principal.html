@@ -207,4 +207,20 @@
       </button>
     </div>
   </div>
+  <ion-row>
+    <ion-col *ngFor="let item of lista_drinks | async">
+
+      <ion-card (click)="goToNfcPage(item)">
+        <img class="resize" src="../assets/images/gimlet.jpg"    />
+        <ion-card-content>
+          <ion-card-title>
+            {{item.title}}
+          </ion-card-title>
+          <p>
+            {{item.bebidas}}  Valor {{item.valor | currency:'USD':false}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>
