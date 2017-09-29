@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
 import { PrincipalPage } from '../principal/principal';
 import { DrinkPersonPage } from '../drink-person/drink-person';
-//import { NFCpagePage } from '../n-fcpage/n-fcpage';
 import { ConfirmadoPage } from '../confirmado/confirmado';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { NFC } from "@ionic-native/nfc";
+import { Subscription } from 'rxjs/Subscription';
+
 
 
 @Component({
@@ -12,8 +13,42 @@ import { ConfirmadoPage } from '../confirmado/confirmado';
   templateUrl: 'n-fcpage.html'
 })
 export class NFCpagePage {
+  subscriptions: Array<Subscription> = new Array<Subscription>();
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private nfc: NFC,
+    public platform: Platform
+  ) {
+    platform.ready().then(() => {
+      this.initNFC();
+    });
+  }
+
+  initNFC() {
+    this.nfc.enabled().then(() => {
+      this.addListenNFC();
+      console.log('NFC Reader iniciado!');
+    }).catch(err => {
+      console.error('ERRO:', err);
+    });
+  }
+
+  addListenNFC() {
+    this.subscriptions.push(this.nfc.addTagDiscoveredListener().subscribe(nfcData => {
+      // TODO:
+      //  - gravar dados no firebase
+      //  - ir para pagina de pedido confirmado
+      console.log('NFC Data:', nfcData);
+      this.goToConfirmado();
+    }));
+  }
+
+  ionViewWillLeave() {
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
   }
 
   goToDrinkPerson(params){
@@ -25,8 +60,7 @@ export class NFCpagePage {
     if (!params) params = {};
     this.navCtrl.push(NFCpagePage);
   }
-  goToConfirmado(params){
-    if (!params) params = {};
+  goToConfirmado(){
     this.navCtrl.push(ConfirmadoPage);
   }
   goToPrincipal(params){
