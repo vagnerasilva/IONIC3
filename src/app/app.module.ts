@@ -10,7 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { DrinkPersonPage } from '../pages/drink-person/drink-person';
 import { NFCpagePage } from '../pages/n-fcpage/n-fcpage';
 import { ConfirmadoPage } from '../pages/confirmado/confirmado';
-
+import { HomePage } from '../pages/home/home';
 
 
 import { FiredataProvider } from '../providers/firedata/firedata';
@@ -36,7 +36,8 @@ const firebaseConfig = {
     LoginPage,
     DrinkPersonPage,
     NFCpagePage,
-    ConfirmadoPage
+    ConfirmadoPage,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -53,8 +54,9 @@ const firebaseConfig = {
     PrincipalPage,      // Pagina Inicio
     LoginPage,          // Login Desligado
     DrinkPersonPage,    // Personalizacao do Drink
-    NFCpagePage,        // Lendo NFC e confirmando 
-    ConfirmadoPage      // Confirmando pedido final
+    NFCpagePage,        // Lendo NFC e confirmando
+    ConfirmadoPage,     // Confirmando pedido final
+    HomePage
   ],
   providers: [
     StatusBar,
