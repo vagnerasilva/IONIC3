@@ -37,6 +37,30 @@ export class NFCpagePage {
 
   addListenNFC() {
     this.subscriptions.push(this.nfc.addTagDiscoveredListener().subscribe(nfcData => {
+      var nfcId = '';
+      for (var idPart of nfcData.tag.id) {
+        if (idPart < 0) {
+          idPart = Math.abs(idPart) + 128;
+        }
+
+        var hex = (idPart).toString(16);
+        if (hex.length > 2) {
+          hex = hex.substring(hex.length - 2, hex.length);
+        } else if (hex.length == 1) {
+          hex = '0' + hex;
+        }
+        nfcId += hex + ':';
+      }
+      nfcId = nfcId.substring(0, nfcId.length - 1).toUpperCase();
+      console.log(nfcId);
+
+      // this.fila_drinks.push({
+      //     ID: "04:57:5C:9A:78:3F:8"+numero,
+      //     RECEITA: "2," + (numero-2) +"," +(numero),
+      //     DRINK: item.title,
+      //     VALOR: Number(item.valor),
+      //     timestamp: Date.now()
+      // });
       // TODO:
       //  - gravar dados no firebase
       //  - ir para pagina de pedido confirmado
