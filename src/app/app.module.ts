@@ -1,3 +1,6 @@
+
+import { FiredataProvider } from '../providers/firedata/firedata';
+
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -13,13 +16,14 @@ import { NFCpagePage } from '../pages/n-fcpage/n-fcpage';
 import { ConfirmadoPage } from '../pages/confirmado/confirmado';
 import { HomePage } from '../pages/home/home';
 
-
-import { FiredataProvider } from '../providers/firedata/firedata';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { HttpModule } from '@angular/http';
+
+
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyAnsLVFrOvB4j7t7mmfwf8Cn5g3KTvUIrE",
   authDomain: "barionic-bd6fd.firebaseapp.com",
@@ -48,6 +52,7 @@ const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
 
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,6 +70,7 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FiredataProvider,
     NFC
+
   ]
 })
 export class AppModule {}

@@ -86,3 +86,99 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+@font-face {
+  font-family: 'Aladin' ;
+  font-style: normal ;
+  font-weight: 400;
+  src: url('../assets/fonts/Aladin/Aladin-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto' ;
+  font-style: italic;
+  font-weight: 400;
+  src: url('../assets/fonts/Roboto/Roboto-BlackItalic.ttf');
+}
+
+
+.bottom_bar
+{
+position: fixed;
+bottom: 0vh;
+width: 100%;
+height: 60px;
+background-color: #626D71 ;
+}
+.botton_text{
+  margin-left: 20px;
+}
+.botao{
+  background-color: #B38867 !important;
+}
+.cartao{
+  background-color: #DDBC95;
+}
+//#f62A00
+//#f1F3CE  Food
+//1E656D
+//#00293C
+
+
+//#626D71
+//#CDCDC0
+//#DDBC95
+//#B38867
+
+.titulo {
+  font-family: "Aladin" !important;
+  font-style: italic;
+  font-size: 40px;
+
+}
+
+.texto_titulo {
+  font-family: "Roboto" !important;
+  font-style: normal;
+  text-align: center;
+
+}
+.texto_barra{
+  font-size: 18px;
+  font-family: "Roboto" !important;
+  font-style: normal;
+
+}
+#fixedbutton {
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  margin-top: 5px;
+}
+
+.thumbnail {
+  position: relative;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+
+.thumbnail img {
+  width: 100%;
+}
+
+.cartao_estilo{
+  text-align: center;
+  height: 200px;
+}
+
+.cartao_fundo{
+  background-color:#CDCDC0;
+}
+.center {
+  margin: auto;
+  margin-top: 10px;
+  width: 50%;
+  //border: 3px solid green;
+  padding: 10px;
+}

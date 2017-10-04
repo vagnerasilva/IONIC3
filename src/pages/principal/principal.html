@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar [hidden]="true" *navbar >
     <ion-title>
       Principal
     </ion-title>
@@ -8,187 +8,91 @@
 <ion-content padding id="page1">
   <div id="principal-container1" class="row">
     <div id="principal-container4" class="col">
-      <h1 id="principal-heading6" style="color:#000000;text-align:center;">
+      <p class="titulo" id="principal-heading6" style="color:#000000;text-align:center;">
         Bionic Bartender Experience
-      </h1>
+      </p>
     </div>
-    <div id="principal-container5" class="col-2">
-      <ion-list id="principal-list4">
-        <ion-item color="none" id="principal-list-item3">
-          <ion-icon name="beer" item-right></ion-icon>
-        </ion-item>
-      </ion-list>
-    </div>
+
   </div>
   <div id="principal-container6">
     <div id="principal-markdown3" class="show-list-numbers-and-dots">
-      <p style="color:#000000;font-size:22px;">
+      <p class="texto_titulo" style="color:#000000;font-size:22px;">
         Escolha o drink de sua preferencia para ser preparado pelo bionic bartender
       </p>
+
+
+  
     </div>
   </div>
+
   <div id="principal-container16" class="row">
-    <div id="principal-container14" class="col">
-      <ion-card id="principal-card24">
-        <ion-list>
+      <ion-row wrap>
+          <ion-col *ngFor="let item of lista_drinks | async" width-50>
+            
+             <ion-card class="cartao_estilo" style="color:#000000" >
+                <div class="cartao_fundo" >
+                    <div color="none" id="principal-list-item16">
+                        <div >
+                          <img class="center" src="{{item.url}}" />
+                        </div>
+                    </div>
+                  <div>
+                      <h2 class="texto" >
+                          {{item.title}}  <br> <button ion-button class="botao"  on-click="escolhaPedido(item)" > OK!  </button>
+                      </h2 >
+                      <p class="texto" >
+                          {{item.bebidas}} <br> Valor {{item.valor | currency:'USD':false}}
+                      </p>
+                  </div>
+                </div>
+          
+              </ion-card>
+          </ion-col>
+      </ion-row>
+
+
+
+    <!-- <div id="principal-container14" class="col" *ngFor="let item of lista_drinks | async"  >
+      <ion-card id="principal-card24"   >
+        <ion-list class="cartao" >
           <ion-item color="none" id="principal-list-item16">
             <ion-thumbnail item-left>
               <img src="assets/img/ct9WWTUsSkqtN4UoLHDF_Blackberry-Mojito.jpg" />
             </ion-thumbnail>
-            <h2>
-              Nome
-            </h2>
+            <h2 class="texto" >
+                {{item.title}}
+            </h2 >
+            <p class="texto" >
+                {{item.bebidas}}  Valor {{item.valor | currency:'USD':false}}
+            </p>
           </ion-item>
-          <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-            <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-          </div>
+
           <ion-item id="principal-list-item-container4">
             <div id="principal-markdown7" class="show-list-numbers-and-dots">
-              <p style="margin-top:0px;color:#000000;">
-                Texto colocando Descricao
+              <p  class="texto"  style="margin-top:0px;color:#000000;">
+            
+                     Escolhendo este Pedido
+                     <button ion-button color="balanced"  on-click="escolhaPedido(item)" > Este!  </button>
+          
               </p>
             </div>
           </ion-item>
         </ion-list>
       </ion-card>
-    </div>
-    <div id="principal-container15" class="col">
-      <ion-card id="principal-card23">
-        <ion-list>
-          <ion-item color="none" id="principal-list-item10">
-            <ion-thumbnail item-left>
-              <img src="assets/img/IjVnsYh8RbqFhCY7SeGH_Chambord-French-Martini.jpg" />
-            </ion-thumbnail>
-            <h2>
-              Item
-            </h2>
-          </ion-item>
-          <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-            <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-          </div>
-          <ion-item id="principal-list-item-container11">
-            <div id="principal-markdown16" class="show-list-numbers-and-dots">
-              <p style="margin-top:0px;color:#000000;">
-                Texto colocando Descricao
-              </p>
-            </div>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-    </div>
-  </div>
-  <div id="principal-container27" class="row">
-    <div id="principal-container25" class="col">
-      <ion-card id="principal-card27">
-        <ion-list>
-          <ion-item color="none" id="principal-list-item20">
-            <ion-thumbnail item-left>
-              <img src="assets/img/IJpImpoQTseUlu40Kkxw_Pear-Martini.jpg" />
-            </ion-thumbnail>
-            <h2>
-              Nome
-            </h2>
-          </ion-item>
-          <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-            <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-          </div>
-          <ion-item id="principal-list-item-container9">
-            <div id="principal-markdown12" class="show-list-numbers-and-dots">
-              <p style="margin-top:0px;color:#000000;">
-                Texto colocando Descricao
-              </p>
-            </div>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-    </div>
-    <div id="principal-container26" class="col">
-      <ion-card id="principal-card28">
-        <ion-list>
-          <ion-item color="none" id="principal-list-item21">
-            <ion-thumbnail item-left>
-              <img src="assets/img/lJEO0HlORqOqJDe3R0sV_Summer-Brude.jpg" />
-            </ion-thumbnail>
-            <h2>
-              Nome
-            </h2>
-          </ion-item>
-          <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-            <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-          </div>
-          <ion-item id="principal-list-item-container10">
-            <div id="principal-markdown13" class="show-list-numbers-and-dots">
-              <p style="margin-top:0px;color:#000000;">
-                Texto colocando Descricao
-              </p>
-            </div>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-    </div>
-  </div>
-  <div id="principal-container24" class="row">
-    <div id="principal-container22" class="col">
-      <ion-card id="principal-card25">
-        <ion-list>
-          <ion-item color="none" id="principal-list-item18">
-            <ion-thumbnail item-left>
-              <img src="assets/img/mXukPbpPSwm5jbfPN57y_Chambord-No.-5.jpg" />
-            </ion-thumbnail>
-            <h2>
-              Nome
-            </h2>
-          </ion-item>
-          <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-            <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-          </div>
-          <ion-item id="principal-list-item-container7">
-            <div id="principal-markdown10" class="show-list-numbers-and-dots">
-              <p style="margin-top:0px;color:#000000;">
-                Texto colocando Descricao
-              </p>
-            </div>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-    </div>
-    <div id="principal-container23" class="col">
-      <ion-card id="principal-card26">
-        <ion-list>
-          <ion-item color="none" id="principal-list-item19">
-            <ion-thumbnail item-left>
-              <img src="assets/img/JzByN3e0TOu5dsRzYSwK_Kiwi-Meanie.jpg" />
-            </ion-thumbnail>
-            <h2>
-              Nome
-            </h2>
-          </ion-item>
-          <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-            <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-          </div>
-          <ion-item id="principal-list-item-container8">
-            <div id="principal-markdown11" class="show-list-numbers-and-dots">
-              <p style="margin-top:0px;color:#000000;">
-                Texto colocando Descricao
-              </p>
-            </div>
-          </ion-item>
-        </ion-list>
-      </ion-card>
-    </div>
+    </div> -->
+    
+
   </div>
   <div id="principal-container28" class="row">
     <div id="principal-container29" class="col">
       <div id="principal-markdown14" class="show-list-numbers-and-dots">
         <p style="color:#000000;">
-          <strong>
-            Status dos Seu PEDIDO
-          </strong>
+    
         </p>
       </div>
     </div>
     <div id="principal-container30" class="col">
-      <button id="principal-button3" ion-button color="balanced" block on-click="goToDrinkPerson()">
+      <button id="principal-button3" class="botao"  ion-button   on-click="goToDrinkPerson()">
         Drink Personalizado
       </button>
     </div>
@@ -197,30 +101,26 @@
     <div id="principal-container32" class="col">
       <div id="principal-markdown15" class="show-list-numbers-and-dots">
         <p style="color:#000000;">
-          N Drink
+           
         </p>
       </div>
+      <div class="spacer" style="height:100px;" id="drinkPerson-spacer11"></div>
     </div>
     <div id="principal-container33" class="col">
-      <button id="principal-button4" ion-button color="balanced" block on-click="goToNFCpage()">
-        Confirmar Pedido
-      </button>
+     
     </div>
   </div>
-  <ion-row>
-    <ion-col *ngFor="let item of lista_drinks | async">
 
-      <ion-card (click)="goToNfcPage(item)">
-        <img class="resize" src="../assets/images/gimlet.jpg"    />
-        <ion-card-content>
-          <ion-card-title>
-            {{item.title}}
-          </ion-card-title>
-          <p>
-            {{item.bebidas}}  Valor {{item.valor | currency:'USD':false}}
-          </p>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
 </ion-content>
+<ion-footer>
+  <div class="bottom_bar">
+  <!-- put some elements here -->
+  <p class="botton_text texto_barra">Drink <strong>{{escolha}} </strong>
+    <button  class="botao" id="fixedbutton" ion-button   on-click="goToNFCpage()"  [disabled]="inputDisabled"   >
+      Confirmar Pedido
+    </button>
+  </p>
+
+  </div>
+</ion-footer>
+

@@ -16,7 +16,21 @@ import { NFCpagePage } from '../n-fcpage/n-fcpage';
 export class ConfirmadoPage {
 
   constructor(public navCtrl: NavController) {
+          
   }
+  ionViewDidLoad(){
+
+    setTimeout(() => {
+      // this.navCtrl.popToRoot();
+      // might try this instead
+     this.navCtrl.push(PrincipalPage);
+  }, 4500);
+
+
+  }
+
+
+
   goToPrincipal(params){
     if (!params) params = {};
     this.navCtrl.push(PrincipalPage);

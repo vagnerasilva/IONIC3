@@ -10,9 +10,11 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class FiredataProvider {
-
+  public pedidoAqui ;
+  public pedidoTeste ;
   constructor(private _af: AngularFireDatabase) {
     console.log('Hello Firedata Provider');
+
   }
   public listDrinks(): FirebaseListObservable<any[]>{
     return this._af.list('https://barionic-bd6fd.firebaseio.com/listadrinks') // Receita das bebidas
@@ -22,9 +24,11 @@ export class FiredataProvider {
   }
   public posBebidas(): FirebaseListObservable<any[]>{
     return this._af.list('https://barionic-bd6fd.firebaseio.com/bebidas')
-
-
-
   }
+
+  public pedidoEscolha(): FirebaseListObservable<any[]>{
+    return this._af.list('https://barionic-bd6fd.firebaseio.com/escolha')
+  }
+
 
 }

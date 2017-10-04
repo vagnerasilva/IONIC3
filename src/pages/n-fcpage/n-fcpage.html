@@ -1,43 +1,55 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar [hidden]="true" *navbar> 
     <ion-title>
       NFCpage
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page4">
-  <h1 id="nFCpage-heading7" style="color:#000000;text-align:center;">
+  <p class="titulo" id="principal-heading6" style="color:#000000;text-align:center;">
     Bionic Bartender Experience
-  </h1>
-  <div class="spacer" style="height:100px;" id="nFCpage-spacer2"></div>
-  <h2 id="nFCpage-heading8" style="color:#000000;text-align:center;">
-    Você selecionou o drink:
+  </p>
+  <div class="spacer" style="height:20px;" id="nFCpage-spacer2"></div>
+  <p class="texto_titulo" id="nFCpage-heading8" style="color:#000000;text-align:center;font-size: 22px;">
+    Você selecionou o drink: <br> {{receber}}
+  </p>
+  <h2  *ngFor="let item of pedido_escolhido | async"    id="nFCpage-heading9" style="color:#000000;text-align:center;">
+      <!-- {{item.DRINK}} -->
   </h2>
-  <h2 id="nFCpage-heading9" style="color:#000000;text-align:center;">
-    NOME DO DRINK
-  </h2>
+  <div  *ngFor="let item of pedido_escolhido | async">
+      
+          <!-- <pre> {{item |json}}</pre> -->
+         
+    </div>
+    <!-- <pre>
+      {{pedido_aqui|json}} 
+      </pre> -->
+      <!-- <pre>
+        {{receber|json}} 
+        {{receber}}
+        </pre> -->
   <div id="nFCpage-container43" class="row">
     <div id="nFCpage-container46" class="col"></div>
     <div id="nFCpage-container44" class="col">
       <div>
-        <img src="assets/img/8ELpYWwiTHqr2HqVvphl_Thai-Basil-Wallbanger.jpg" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+        <img src="{{img}}" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
       </div>
     </div>
     <div id="nFCpage-container45" class="col"></div>
   </div>
-  <h2 id="nFCpage-heading10" style="color:#000000;text-align:center;">
+  <p class="texto_titulo" id="nFCpage-heading10" style="color:#000000;text-align:center; font-size: 22px;">
     Agora aproxime sua pulseira deste dispositivo para registrar seu drink!
-  </h2>
+  </p>
   <div id="nFCpage-container50" class="row">
     <div id="nFCpage-container47" class="col"></div>
     <div id="nFCpage-container48" class="col">
-      <button id="nFCpage-button5" ion-button color="balanced" block on-click="goToPrincipal()">
+      <button id="nFCpage-button5" ion-button class="botao" block on-click="goToPrincipal()">
         Alterar Drink
       </button>
     </div>
     <div id="nFCpage-container49" class="col"></div>
   </div>
-  <button id="nFCpage-button6" ion-button color="energized" block on-click="goToConfirmado()">
+  <!-- <button id="nFCpage-button6" ion-button class="botao" block on-click="goToConfirmado()">
     Teste! NFC lido (retirar)
-  </button>
+  </button> -->
 </ion-content>
