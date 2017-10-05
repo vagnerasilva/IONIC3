@@ -5,7 +5,7 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page1">
+<ion-content padding id="page1" class="pagina">
   <div id="principal-container1" class="row">
     <div id="principal-container4" class="col">
       <p class="titulo" id="principal-heading6" style="color:#000000;text-align:center;">
@@ -40,9 +40,10 @@
                       <h2 class="texto" >
                           {{item.title}}  <br> <button ion-button class="botao"  on-click="escolhaPedido(item)" > OK!  </button>
                       </h2 >
-                      <p class="texto" >
+                      <p class="texto" > 
+                        <!-- 
                           {{item.bebidas}} 
-                        <!--  <br> Valor {{item.valor | currency:'USD':false}}-->
+                         <br> Valor {{item.valor | currency:'USD':false}}-->
                       </p>
                   </div>
                 </div>
