@@ -175,8 +175,9 @@ background-color: #626D71 ;
 .cartao_fundo{
   //background-color:#CDCDC0;
 }
-.pagina{
-  background-color:#CDCDC0;
+
+ion-content {
+background-color:#CDCDC0 !important;
 }
 .center {
   margin: auto;
