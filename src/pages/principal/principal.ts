@@ -153,7 +153,7 @@ export class PrincipalPage {
         var element = this.receita_drink[i];
         final = final + element
       }
-      console.log(final)
+    //  console.log(final)
      // this.pedido_teste=item;
     //  this.navCtrl.push(
     //    item
@@ -205,7 +205,7 @@ export class PrincipalPage {
   }
   goToNFCpage(params){
 
-
+    console.log(this.receita_drink)
     if (!params) params = {
       nome:this.nome_drink,
       receita:this.receita_drink,
