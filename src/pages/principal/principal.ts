@@ -115,9 +115,7 @@ export class PrincipalPage {
            // console.log(beb)
            // console.log(element.tipo)
             receitastring = receitastring + String(element.pos)+","
-          }else{
-            receitastring = receitastring +"0" +","
-            }
+          }
         });
         // for (var index = 0; index < this.controle.length; index++) {
         //   var element = this.controle[index];
