@@ -34,13 +34,19 @@
       <ion-card id="drinkPerson-card29">
         <ion-list>
           <ion-item color="none" id="drinkPerson-list-item24">
+
             <ion-thumbnail item-left>
               <img src="{{item.url}}" />
             </ion-thumbnail>
-            <h2 class="texto_titulo" >
-             {{item.tipo}}
-            </h2>
-            <button ion-button class="botao"  on-click="escolhaBebida(item)" [disabled]="!inputDisabled"  >  OK!  </button>
+           
+              <ion-card-content center text-center >
+                <h2 class="texto_titulo" >
+                {{item.tipo}}
+                
+                </h2>
+              <button  ion-button class="botao"  on-click="escolhaBebida(item)" [disabled]="!inputDisabled"  >  OK!  </button>
+              </ion-card-content>  
+          
           </ion-item>
         </ion-list>
       </ion-card>
